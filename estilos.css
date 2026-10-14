@@ -1,0 +1,170 @@
+:root {
+  --verde: #2F6F63;
+  --verde-2: #2F6B5F;
+  --terracota: #C97852;
+  --amarillo: #E7B84B;
+  --crema: #F9F4EA;
+  --pad: clamp(16px, 5vw, 96px);
+
+  /* Alturas de los criterios. Ajustar aquí si cambian. */
+  --alto-hero: 552px;          /* el criterio dice 1552px: parece errata */
+  --alto-experiencias: 467px;  /* el criterio dice 1467px: parece errata */
+}
+
+section { width: 100%; padding-left: var(--pad); padding-right: var(--pad); }
+h1, h2, h3, p { margin: 0; }
+.icono { display: block; flex: none; }
+
+/* ===== Botones del hero ===== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none;
+}
+.btn--primario   { width: 189px; height: 52px; background: var(--terracota); color: #000; }
+.btn--secundario { width: 166px; height: 54px; background: var(--verde); color: #fff; border: 3px solid #fff; }
+a:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 3px; }
+
+/* ===== Hero ===== */
+.hero {
+  display: grid; grid-template-columns: minmax(0, 533px) minmax(0, 656px);
+  justify-content: space-between; align-items: center; gap: 48px;
+  min-height: var(--alto-hero); background: var(--verde); color: #fff;
+}
+.hero__titulo { font-size: 48px; font-weight: 700; line-height: 1.2; text-align: left; }
+.hero__separador { width: 533px; max-width: 100%; height: 0; margin: 24px 0; border: 0; border-top: 2px solid var(--terracota); }
+.hero__subtitulo { font-size: 20px; font-weight: 400; line-height: 1.5; text-align: left; }
+.hero__subtitulo::before {
+  content: ""; display: inline-block; width: 26px; height: 12px; margin-right: 10px;
+  background: #fff; border-radius: 2px;
+}
+.hero__botones { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 40px; }
+
+/* Cluster de imágenes: posiciones en % sobre una caja de 656 x 500 */
+.hero__imagenes { position: relative; width: 100%; max-width: 656px; aspect-ratio: 656 / 500; justify-self: end; }
+.hero__img, .hero__fondo { position: absolute; }
+.hero__img { width: 47.1%; height: 65.8%; object-fit: cover; border-radius: 24px; }
+.hero__fondo { width: 42.4%; height: 58.4%; }
+.hero__img--1   { left: 0;     top: 0; }
+.hero__fondo--1 { left: -3%;   top: 12.2%; background: var(--amarillo); border-radius: 22px; }
+.hero__img--2   { left: 52.9%; top: 28.8%; }
+.hero__fondo--2 { left: 49.9%; top: 41%;   background: var(--terracota); border-radius: 22px; }
+
+/* ===== Contenedor secundario ===== */
+.beneficios {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  gap: 24px 32px; min-height: 123px; padding-top: 16px; padding-bottom: 16px; background: #fff;
+}
+.beneficio { display: flex; align-items: center; gap: 16px; }
+.beneficio__icono { display: grid; place-items: center; flex: none; width:62px; height: 58px; background: #9cc8bf; border-radius: 50%; color: #000; }
+.beneficio__texto { font-size: 16px; font-weight: 700; color: #000; text-align: left; }
+
+/* ===== ¿Qué buscas? ===== */
+.busca { min-height: 289px; padding-top: 40px; padding-bottom: 40px; background: var(--crema); }
+.busca__titulo { font-size: 32px; font-weight: 700; color: #000; text-align: left; }
+.busca__lista { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 24px; }
+.categoria {
+  display: flex; align-items: center; gap: 16px; width: 415px; max-width: 100%; height: 106px; padding: 0 24px;
+  background: #fff; border: 1px solid #FDEABC; border-radius: 9px; color: #000; text-decoration: none;
+}
+.categoria__circulo { display: grid; place-items: center; flex: none; width: 63px; height: 58px; border-radius: 50%; }
+.categoria__titulo { display: block; font-size: 20px; font-weight: 700; }
+.categoria__detalle { display: block; margin-top: 4px; font-size: 14px; font-weight: 200; }
+
+/* ===== Rutas ===== */
+.ruta {
+  display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+  min-height: 412px; padding-top: 40px; padding-bottom: 40px; background: #DCE9DF; color: #000;
+}
+.ruta__texto { flex: 1 1 380px; max-width: 560px; }
+.ruta__titulo { font-size: 36px; font-weight: 700; text-align: left; }
+.ruta__descripcion { margin-top: 16px; font-size: 20px; font-weight: 300; line-height: 1.5; text-align: left; }
+.ruta__btn {
+  display: inline-flex; align-items: center; justify-content: center; max-width: 100%;
+  width: 348px; height: 45px; margin-top: 32px; background: var(--verde); border-radius: 5px;
+  color: #fff; font-size: 20px; font-weight: 600; text-decoration: none;
+}
+.ruta__img { flex: 0 1 626px; width: 626px; max-width: 100%; height: auto; aspect-ratio: 626 / 270; object-fit: cover; }
+
+/* ===== Experiencias destacadas ===== */
+.experiencias { min-height: var(--alto-experiencias); padding-top: 48px; padding-bottom: 48px; background: #F8F4EA; color: #000; }
+.experiencias__titulo { font-size: 36px; font-weight: 700; text-align: left; }
+.experiencias__subtitulo { margin-top: 8px; font-size: 16px; font-weight: 400; text-align: left; }
+.experiencias__lista { display: flex; flex-wrap: wrap; gap: 32px; margin-top: 32px; }
+
+.tarjeta { width: 364px; max-width: 100%; min-height: 455px; background: #fff; border: 1px solid var(--terracota); border-radius: 10px; }
+.tarjeta__img { display: block; width: 100%; height: 166px; object-fit: cover; border-radius: 10px 10px 0 0; }
+.tarjeta__cuerpo { padding: 16px 24px 20px; }
+.tarjeta__sello {
+  display: inline-flex; align-items: center; gap: 6px; width: 219px; max-width: 100%; height: 23px; padding: 0 6px;
+  background: #b6cbc7; border-radius: 5px; color: #000; font-size: 13px; font-weight: 700;
+}
+.tarjeta__titulo { margin-top: 16px; font-size: 22px; font-weight: 700; line-height: 1.2; text-align: left; }
+.tarjeta__descripcion { margin-top: 8px; font-size: 15px; font-weight: 300; text-align: left; }
+.tarjeta__precio { margin-top: 12px; font-size: 13px; text-align: left; }
+.tarjeta__precio strong { font-weight: 600; }
+.tarjeta__precio span { font-weight: 300; }
+.tarjeta__apoyo { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 13px; font-weight: 300; text-align: left; }
+.tarjeta__apoyo .icono { color: #e0262f; }
+.tarjeta__btn {
+  display: flex; align-items: center; justify-content: center; gap: 6px; width: 307px; max-width: 100%; height: 30px;
+  margin: 16px auto 0; background: #fff; border: 1px solid var(--verde); border-radius: 6px;
+  color: var(--verde); font-size: 13px; font-weight: 400; text-decoration: none;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 1100px) {
+  .hero { grid-template-columns: 1fr; padding-top: 48px; padding-bottom: 48px; }
+  .hero__imagenes { justify-self: center; }
+}
+@media (max-width: 600px) {
+  .hero__titulo { font-size: 32px; }
+  .hero__subtitulo { font-size: 18px; }
+  .beneficios { flex-direction: column; align-items: flex-start; }
+  .busca__titulo, .ruta__titulo, .experiencias__titulo { font-size: 28px; }
+  .ruta__btn { font-size: 17px; }
+}
+
+/* ===== Cómo funciona (dentro de Experiencias) ===== */
+.como__titulo { margin-top: 56px; font-size: 36px; font-weight: 600; color: #000; text-align: left; }
+.como__lista { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 24px; }
+.paso {
+  width: 364px; max-width: 100%; min-height: 149px; padding: 12px 16px;
+  background: #fff; border: 1px solid var(--terracota); border-radius: 10px; color: #000;
+}
+.paso__numero {
+  display: grid; place-items: center; width: 51px; height: 50px;
+  background: var(--verde); border-radius: 50%; color: #fff; font-size: 36px; font-weight: 600; line-height: 1;
+}
+.paso__titulo { margin-top: 8px; font-size: 16px; font-weight: 600; text-align: left; }
+.paso__detalle { margin-top: 2px; font-size: 14px; font-weight: 300; text-align: left; }
+
+/* ===== Cada visita ===== */
+.visita {
+  display: flex; align-items: center; gap: 32px; min-height: 197px;
+  padding-top: 24px; padding-bottom: 24px; background: var(--amarillo); color: #000; 
+}
+.visita__img { flex: none; width: 108px; height: 108px; object-fit: cover; }
+.visita__titulo { font-size: 40px; font-weight: 700; text-align: left; }
+.visita__subtitulo { margin-top: 8px; font-size: 24px; font-weight: 400; text-align: left; }
+
+/* ===== Negocio ===== */
+.negocio {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px 40px;
+  min-height: 197px; padding-top: 24px; padding-bottom: 24px; background: #2F6B5F 50%; color: #fff;
+}
+.negocio__titulo { font-size: 40px; font-weight: 600; text-align: left; }
+.negocio__subtitulo { margin-top: 2px; font-size: 24px; font-weight: 600; text-align: left; }
+.negocio__btn {
+  display: inline-flex; align-items: center; justify-content: center; width: 353px; max-width: 100%; height: 67px;
+  background: var(--terracota); border-radius: 10px; color: #000; font-size: 24px; font-weight: 600; text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .visita__titulo, .negocio__titulo { font-size: 28px; }
+  .visita__subtitulo, .negocio__subtitulo { font-size: 18px; }
+  .negocio__btn { font-size: 20px; }
+}
+@media (max-width: 600px) {
+  .visita { flex-direction: column; align-items: flex-start; }
+  .como__titulo { font-size: 28px; }
+}
