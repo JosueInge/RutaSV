@@ -5,7 +5,7 @@ $whatsapp = 'https://wa.me/50300000000';
 
 $enlaces = [
     'explorar' => ['Explorar', '#'],
-    'planear' => ['Planear mi visita', '#'],
+    
     'negocios' => ['Para negocios', '#'],
 ];
 ?>
