@@ -11,6 +11,9 @@
   --alto-experiencias: 467px;  /* el criterio dice 1467px: parece errata */
 }
 
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+
 section { width: 100%; padding-left: var(--pad); padding-right: var(--pad); }
 h1, h2, h3, p { margin: 0; }
 .icono { display: block; flex: none; }
@@ -31,7 +34,7 @@ a:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 3px; }
   min-height: var(--alto-hero); background: var(--verde); color: #fff;
 }
 .hero__titulo { font-size: 48px; font-weight: 700; line-height: 1.2; text-align: left; }
-.hero__separador { width: 533px; max-width: 100%; height: 0; margin: 24px 0; border: 0; border-top: 2px solid var(--terracota); }
+.hero__separador { width: min(533px, 100%); height: 0; margin: 24px 0; border: 0; border-top: 2px solid var(--terracota); .hero__texto { min-width: 0; } }
 .hero__subtitulo { font-size: 20px; font-weight: 400; line-height: 1.5; text-align: left; }
 .hero__subtitulo::before {
   content: ""; display: inline-block; width: 26px; height: 12px; margin-right: 10px;
@@ -86,10 +89,10 @@ a:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 3px; }
 .ruta__img { flex: 0 1 626px; width: 626px; max-width: 100%; height: auto; aspect-ratio: 626 / 270; object-fit: cover; }
 
 /* ===== Experiencias destacadas ===== */
-.experiencias { min-height: var(--alto-experiencias); padding-top: 48px; padding-bottom: 48px; background: #F8F4EA; color: #000; }
+.experiencias { min-height: var(--alto-experiencias); padding-top: 48px; padding-bottom: 48px; background: #F8F4EA; color: #000; align-items: center; }
 .experiencias__titulo { font-size: 36px; font-weight: 700; text-align: left; }
 .experiencias__subtitulo { margin-top: 8px; font-size: 16px; font-weight: 400; text-align: left; }
-.experiencias__lista { display: flex; flex-wrap: wrap; gap: 32px; margin-top: 32px; }
+.experiencias__lista { display: flex; flex-wrap: wrap; gap: 32px; margin-top: 32px; justify-content: center; padding: 10px;}
 
 .tarjeta { width: 364px; max-width: 100%; min-height: 455px; background: #fff; border: 1px solid var(--terracota); border-radius: 10px; }
 .tarjeta__img { display: block; width: 100%; height: 166px; object-fit: cover; border-radius: 10px 10px 0 0; }
@@ -113,7 +116,7 @@ a:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 3px; }
 
 /* ===== Responsivo ===== */
 @media (max-width: 1100px) {
-  .hero { grid-template-columns: 1fr; padding-top: 48px; padding-bottom: 48px; }
+  .hero { grid-template-columns: minmax(0, 1fr); padding-top: 48px; padding-bottom: 48px; }
   .hero__imagenes { justify-self: center; }
 }
 @media (max-width: 600px) {
@@ -150,13 +153,17 @@ a:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 3px; }
 /* ===== Negocio ===== */
 .negocio {
   display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px 40px;
-  min-height: 197px; padding-top: 24px; padding-bottom: 24px; background: #2F6B5F 50%; color: #fff;
+  min-height: 197px; padding-top: 24px; padding-bottom: 24px; background: #93AFA4; color: #000;
 }
-.negocio__titulo { font-size: 40px; font-weight: 600; text-align: left; }
-.negocio__subtitulo { margin-top: 2px; font-size: 24px; font-weight: 600; text-align: left; }
+.negocio__titulo { font-size: 30px; font-weight: 600; text-align: left; }
+.negocio__subtitulo { margin-top: 2px; font-size: 24px; font-weight: 400; text-align: left; }
 .negocio__btn {
   display: inline-flex; align-items: center; justify-content: center; width: 353px; max-width: 100%; height: 67px;
   background: var(--terracota); border-radius: 10px; color: #000; font-size: 24px; font-weight: 600; text-decoration: none;
+}
+.contenedor_vacio {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px 40px;
+  min-height: 20px; padding-top: 24px; padding-bottom: 24px; background: #F8F4EA; 
 }
 
 @media (max-width: 900px) {

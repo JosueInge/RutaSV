@@ -12,9 +12,9 @@ $beneficios = [
 ];
 
 $categorias = [
-  ['comer',     'Dónde comer',               'Comedores locales · Marisquerías',       '#E7B84B'],
-  ['paseo',     'Paseos y pesca',            'Paseo en lancha · Pesca · Kayak y aves', '#4D9BAA'],
-  ['comunidad', 'Experiencias comunitarias', 'Talleres · Liberación de tortugas',      '#DCE9DF'],
+  ['donde.png',     'Dónde comer',               'Comedores locales · Marisquerías',       '#E7B84B'],
+  ['paseos.png',     'Paseos y pesca',            'Paseo en lancha · Pesca · Kayak y aves', '#4D9BAA'],
+  ['experiencias.png', 'Experiencias comunitarias', 'Talleres · Liberación de tortugas',      '#DCE9DF'],
 ];
 
 // El primer valor es el nombre real del archivo en assets/imagenes/
@@ -83,7 +83,9 @@ $pasos = [
       <div class="busca__lista">
         <?php foreach ($categorias as [$icono, $nombre, $detalle, $color]): ?>
           <a class="categoria" href="#">
-            <span class="categoria__circulo" style="background:<?= $color ?>"><?= icono($icono, 39) ?></span>
+            <span class="categoria__circulo" style="background:<?= $color ?>">
+              <img class="categoria__icono" src="assets/imagenes/<?= htmlspecialchars($icono) ?>" alt="" width="39" height="39">
+                  </span>
             <span>
               <strong class="categoria__titulo"><?= htmlspecialchars($nombre) ?></strong>
               <span class="categoria__detalle"><?= htmlspecialchars($detalle) ?></span>
@@ -136,6 +138,7 @@ $pasos = [
       </div>
     </section>
 
+    
     <!-- Cada visita 
     <section class="visita">
       <img class="visita__img" src="assets/imagenes/comunidad.png" alt="" width="108" height="108">
@@ -153,6 +156,11 @@ $pasos = [
       </div>
       <a class="negocio__btn" href="#">Registrar mi negocio</a>
     </section>
+
+    <section class="contenedor_vacio">
+      <div class="contenedor_vacio__texto">
+    </section>
+  
   </main>
   <?php include __DIR__ . '/footer.php'; ?>
 
